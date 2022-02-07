@@ -7,15 +7,15 @@ BTN.addEventListener("click", function () {
 });
 
 function displayTime() {
-  const date = new Date().toLocaleTimeString("fr");
-  const seconds = date.split(":")[2];
+  const date = new Date();
+  const seconds = date.getSeconds();
 
   const isDivisibleBy3 = seconds % 3 === 0;
 
   TIMER.classList.toggle("text-danger", isDivisibleBy3);
   TIMER.classList.toggle("fw-bold", isDivisibleBy3);
 
-  TIMER.innerHTML = date;
+  TIMER.innerHTML = date.toLocaleTimeString("fr");
 }
 
 setInterval(displayTime, 1000);
